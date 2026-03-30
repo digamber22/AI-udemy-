@@ -101,3 +101,72 @@ Different models use **different tokenizers and token sizes**, so the same text 
 
 ## ✅ Key Idea
 Text → Tokens → LLM (predict next token repeatedly) → Tokens → Text
+
+# 5. How LLMs Work (Step-by-Step Pipeline)
+
+### 📌 1. Tokenization
+Convert text into tokens (numbers)
+
+"Hey There!" → [101, 2054, 999]
+
+---
+
+### 📌 2. Vector Embedding
+Each token is converted into a dense vector (embedding)
+
+[101, 2054, 999] → [[0.2, 0.8, ...], [0.5, 0.1, ...], ...]
+
+👉 These vectors capture semantic meaning
+
+---
+
+### 📌 3. Positional Encoding
+Adds position information to embeddings (since transformers don’t understand order by default)
+
+Embedding + Position → Updated vectors
+
+👉 Helps model understand word order (e.g., "I am good" vs "Good am I")
+
+---
+
+### 📌 4. Multi-Head Attention
+Model looks at relationships between words
+
+👉 Each word attends to other words:
+- "good" relates to "I am"
+- Context is captured
+
+👉 Multiple heads = multiple perspectives
+
+---
+
+### 📌 5. Transformer Layers
+- Attention + Feedforward layers
+- Deep processing of context
+
+---
+
+### 📌 6. Next Token Prediction
+Model predicts the next token
+
+[101, 2054, 999] → "I"  
+→ Append → repeat process
+
+---
+
+### 📌 7. Iterative Generation
+Tokens keep getting added:
+
+"I" → "am" → "good" → "."
+
+---
+
+### 📌 8. Detokenization
+Convert tokens back to text
+
+→ "Hey There! I am good."
+
+---
+
+## ✅ Final Flow
+Text → Tokens → Embeddings → Positional Encoding → Attention → Prediction → Tokens → Text
