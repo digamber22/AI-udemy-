@@ -1,24 +1,94 @@
 # Prompting Techniques Overview
 
 ## 1. Zero-Shot Prompting
+
 Asking the AI to perform a task without providing any prior examples. The model relies entirely on its pre-trained knowledge to generate the answer.
+
 * **Best for:** Simple, common, or straightforward tasks.
-* **Example:** *"Classify the sentiment of this sentence: 'I am happy.'"*
+* **Example:**
+  *"Classify the sentiment of this sentence: 'I am happy.'"*
+
+---
 
 ## 2. One-Shot Prompting
-Providing exactly **one** example of the desired input and output before asking the AI to complete the target task. 
+
+Providing exactly **one** example of the desired input and output before asking the AI to complete the target task.
+
 * **Best for:** Establishing a specific format, tone, or style quickly.
-* **Example:** > Sentence: "I hate this." | Sentiment: Negative
-  > Sentence: "This is wonderful!" | Sentiment:
+* **Example:**
+
+  ```
+  Sentence: "I hate this." | Sentiment: Negative  
+  Sentence: "This is wonderful!" | Sentiment:
+  ```
+
+---
 
 ## 3. Few-Shot Prompting
+
 Providing **multiple** examples (usually 2 to 5+) of inputs and outputs to demonstrate a specific pattern, logic, or complex formatting.
+
 * **Best for:** Complex reasoning, strict output constraints, or teaching the model a novel task.
 * **Example:**
-  > English: Cat -> Spanish: Gato
-  > English: Dog -> Spanish: Perro
-  > English: Bird -> Spanish: Pájaro
-  > English: Horse -> Spanish:
+
+  ```
+  English: Cat -> Spanish: Gato  
+  English: Dog -> Spanish: Perro  
+  English: Bird -> Spanish: Pájaro  
+  English: Horse -> Spanish:
+  ```
+
+---
+
+## 4. Persona-Based Prompting
+
+Assigning a **specific role, identity, or personality** to the AI so it mimics a certain person, expert, or style in its response.
+
+* **Best for:** Tone control, domain expertise, creative writing, or simulating real-world roles.
+
+* **Example:**
+
+  ```
+  You are a senior software engineer. Explain what a REST API is to a beginner.
+  ```
+
+* **Mimic-style example:**
+
+  ```
+  Explain recursion like a funny teacher who uses simple real-life examples.
+  ```
+
+---
+
+## 5. Chain-of-Thought Prompting (cot)
+
+Encouraging the AI to **think step-by-step** before giving the final answer, improving reasoning and accuracy for complex problems.
+
+* **Best for:** Logical reasoning, math problems, multi-step tasks, and debugging.
+
+* **Example:**
+
+  ```
+  Solve this step by step:
+  If a train travels 60 km in 1 hour, how far will it travel in 5 hours?
+  ```
+
+* **Another example:**
+
+  ```
+  Think step by step and explain how you arrive at the answer:
+  What is 15 × 12?
+  ```
+
+---
+
+## 💡 Quick Insight
+
+* **Zero-shot** → No guidance
+* **One-shot** → Minimal guidance
+* **Few-shot** → Strong pattern guidance
+* **Persona-based** → Behavior + tone + role mimicry
+* **Chain-of-Thought** → Step-by-step reasoning
 
 #
   # Quick Summary: LLM Prompt Serialization & Formats
